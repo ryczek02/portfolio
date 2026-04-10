@@ -1,0 +1,108 @@
+- generic [ref=e2]:
+  - navigation:
+    - generic:
+      - link "ŁR":
+        - /url: /
+      - generic:
+        - link "Projects":
+          - /url: "#projects"
+        - link "GitHub":
+          - /url: https://github.com/ryczek02
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e9]: PORTFOLIO / 2025
+          - generic [ref=e10]:
+            - link "LinkedIn" [ref=e11] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/lukaszryczko/
+            - link "YouTube" [ref=e12] [cursor=pointer]:
+              - /url: https://www.youtube.com/@ukaszryczko755
+            - link "GitHub" [ref=e13] [cursor=pointer]:
+              - /url: https://github.com/ryczek02
+        - heading "Łukasz Ryczko" [level=1] [ref=e15]:
+          - generic [ref=e16]: Łukasz
+          - generic [ref=e17]: Ryczko
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - paragraph [ref=e20]: Software engineer focused on backend systems,
+            - paragraph [ref=e21]: AI integrations and embedded projects.
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: "01"
+              - generic [ref=e25]: Laravel
+            - generic [ref=e26]:
+              - generic [ref=e27]: "02"
+              - generic [ref=e28]: AI / LLM
+            - generic [ref=e29]:
+              - generic [ref=e30]: "03"
+              - generic [ref=e31]: Embedded
+            - generic [ref=e32]:
+              - generic [ref=e33]: "04"
+              - generic [ref=e34]: Backend
+      - generic [ref=e37]: SCROLL
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - button "▼ DBG" [ref=e40] [cursor=pointer]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - generic [ref=e43]: ROTATION
+            - generic [ref=e44]:
+              - text: startX
+              - slider "startX -0.50" [ref=e45] [cursor=pointer]: "-0.5"
+              - generic [ref=e46]: "-0.50"
+            - generic [ref=e47]:
+              - text: startY
+              - slider "startY -0.30" [ref=e48] [cursor=pointer]: "-0.3"
+              - generic [ref=e49]: "-0.30"
+            - generic [ref=e50]:
+              - text: endX
+              - slider "endX 0.30" [ref=e51] [cursor=pointer]: "0.3"
+              - generic [ref=e52]: "0.30"
+            - generic [ref=e53]:
+              - text: endY
+              - slider "endY 0.80" [ref=e54] [cursor=pointer]: "0.8"
+              - generic [ref=e55]: "0.80"
+          - generic [ref=e56]:
+            - generic [ref=e57]: SCREEN POSITION
+            - generic [ref=e58]:
+              - text: X
+              - slider "X -0.1" [ref=e59] [cursor=pointer]: "-0.1"
+              - generic [ref=e60]: "-0.1"
+            - generic [ref=e61]:
+              - text: "Y"
+              - slider "Y 2.0" [ref=e62] [cursor=pointer]: "2"
+              - generic [ref=e63]: "2.0"
+            - generic [ref=e64]:
+              - text: Z
+              - slider "Z 10.0" [ref=e65] [cursor=pointer]: "10"
+              - generic [ref=e66]: "10.0"
+          - generic [ref=e67]:
+            - generic [ref=e68]: SCALE
+            - generic [ref=e69]:
+              - text: screen
+              - slider "screen 25.0" [ref=e70] [cursor=pointer]: "25"
+              - generic [ref=e71]: "25.0"
+            - generic [ref=e72]:
+              - text: model
+              - slider "model 0.50" [ref=e73] [cursor=pointer]: "0.5"
+              - generic [ref=e74]: "0.50"
+          - generic [ref=e75]:
+            - generic [ref=e76]: EXPORT JSON
+            - textbox [ref=e77]: "{ \"rotation\": { \"startX\": -0.5, \"startY\": -0.3, \"endX\": 0.3, \"endY\": 0.8 }, \"screen\": { \"x\": -0.1, \"y\": 2, \"z\": 10, \"distanceFactor\": 25 }, \"modelScale\": 0.5 }"
+            - button "COPY" [ref=e78] [cursor=pointer]
+      - generic [ref=e81]:
+        - generic [ref=e84]: 01 / PROJECT
+        - heading "BikeESP" [level=2] [ref=e85]
+        - paragraph [ref=e86]: ESP32 based bike computer and telemetry device
+        - paragraph [ref=e88]: Custom-built cycling computer powered by the ESP32-S3 microcontroller with AMOLED touch display. Real-time telemetry, GPS tracking, and sensor data acquisition for performance analysis.
+        - generic [ref=e89]:
+          - generic [ref=e90]: C++
+          - generic [ref=e91]: ESP32
+          - generic [ref=e92]: Embedded
+          - generic [ref=e93]: IoT
+          - generic [ref=e94]: AMOLED
+        - link "View on GitHub" [ref=e95] [cursor=pointer]:
+          - /url: https://github.com/ryczek02/BikeESP
+          - text: View on GitHub
+          - img [ref=e96]

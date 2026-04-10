@@ -1,0 +1,80 @@
+- generic [ref=e2]:
+  - navigation:
+    - generic:
+      - link "ŁR":
+        - /url: /
+      - generic:
+        - link "Projects":
+          - /url: "#projects"
+        - link "GitHub":
+          - /url: https://github.com/ryczek02
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e9]: PORTFOLIO / 2025
+          - generic [ref=e10]:
+            - link "LinkedIn" [ref=e11] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/lukaszryczko/
+            - link "YouTube" [ref=e12] [cursor=pointer]:
+              - /url: https://www.youtube.com/@ukaszryczko755
+            - link "GitHub" [ref=e13] [cursor=pointer]:
+              - /url: https://github.com/ryczek02
+        - heading "Łukasz Ryczko" [level=1] [ref=e15]:
+          - generic [ref=e16]: Łukasz
+          - generic [ref=e17]: Ryczko
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - paragraph [ref=e20]: Software engineer focused on backend systems,
+            - paragraph [ref=e21]: AI integrations and embedded projects.
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: "01"
+              - generic [ref=e25]: Laravel
+            - generic [ref=e26]:
+              - generic [ref=e27]: "02"
+              - generic [ref=e28]: AI / LLM
+            - generic [ref=e29]:
+              - generic [ref=e30]: "03"
+              - generic [ref=e31]: Embedded
+            - generic [ref=e32]:
+              - generic [ref=e33]: "04"
+              - generic [ref=e34]: Backend
+      - generic [ref=e37]: SCROLL
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - button "▼ DBG" [ref=e40] [cursor=pointer]
+        - generic [ref=e41]:
+          - generic [ref=e42]:
+            - text: baseX
+            - slider "baseX -0.18" [ref=e43]: "-0.18"
+            - generic [ref=e44]: "-0.18"
+          - generic [ref=e45]:
+            - text: baseY
+            - slider "baseY -0.20" [ref=e46]: "-0.2"
+            - generic [ref=e47]: "-0.20"
+          - generic [ref=e48]:
+            - text: mouse
+            - slider "mouse 0.15" [ref=e49]: "0.15"
+            - generic [ref=e50]: "0.15"
+          - generic [ref=e51]:
+            - text: scale
+            - slider "scale 1.00" [ref=e52]: "1"
+            - generic [ref=e53]: "1.00"
+          - textbox [ref=e54]: "{ \"baseX\": -0.18, \"baseY\": -0.2, \"mouseStrength\": 0.15, \"scale\": 1 }"
+          - button "COPY" [ref=e55] [cursor=pointer]
+      - generic [ref=e58]:
+        - generic [ref=e61]: 01 / PROJECT
+        - heading "BikeESP" [level=2] [ref=e62]
+        - paragraph [ref=e63]: ESP32 based bike computer and telemetry device
+        - paragraph [ref=e65]: Custom-built cycling computer powered by the ESP32-S3 microcontroller with AMOLED touch display. Real-time telemetry, GPS tracking, and sensor data acquisition for performance analysis.
+        - generic [ref=e66]:
+          - generic [ref=e67]: C++
+          - generic [ref=e68]: ESP32
+          - generic [ref=e69]: Embedded
+          - generic [ref=e70]: IoT
+          - generic [ref=e71]: AMOLED
+        - link "View on GitHub" [ref=e72] [cursor=pointer]:
+          - /url: https://github.com/ryczek02/BikeESP
+          - text: View on GitHub
+          - img [ref=e73]

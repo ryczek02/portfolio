@@ -1,0 +1,87 @@
+- generic [ref=e2]:
+  - navigation:
+    - generic:
+      - link "ŁR":
+        - /url: /
+      - generic:
+        - link "Projects":
+          - /url: "#projects"
+        - link "GitHub":
+          - /url: https://github.com/ryczek02
+  - main [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e9]: PORTFOLIO / 2025
+          - generic [ref=e10]:
+            - link "LinkedIn" [ref=e11] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/lukaszryczko/
+            - link "YouTube" [ref=e12] [cursor=pointer]:
+              - /url: https://www.youtube.com/@ukaszryczko755
+            - link "GitHub" [ref=e13] [cursor=pointer]:
+              - /url: https://github.com/ryczek02
+        - heading "Łukasz Ryczko" [level=1] [ref=e15]:
+          - generic [ref=e16]: Łukasz
+          - generic [ref=e17]: Ryczko
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - paragraph [ref=e20]: Software engineer focused on backend systems,
+            - paragraph [ref=e21]: AI integrations and embedded projects.
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: "01"
+              - generic [ref=e25]: Laravel
+            - generic [ref=e26]:
+              - generic [ref=e27]: "02"
+              - generic [ref=e28]: AI / LLM
+            - generic [ref=e29]:
+              - generic [ref=e30]: "03"
+              - generic [ref=e31]: Embedded
+            - generic [ref=e32]:
+              - generic [ref=e33]: "04"
+              - generic [ref=e34]: Backend
+      - generic [ref=e37]: SCROLL
+    - generic [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e44]: 01 / PROJECT
+        - heading "BikeESP" [level=2] [ref=e45]
+        - paragraph [ref=e46]: ESP32 based bike computer and telemetry device
+        - paragraph [ref=e48]: Custom-built cycling computer powered by the ESP32-S3 microcontroller with AMOLED touch display. Real-time telemetry, GPS tracking, and sensor data acquisition for performance analysis.
+        - generic [ref=e49]:
+          - generic [ref=e50]: C++
+          - generic [ref=e51]: ESP32
+          - generic [ref=e52]: Embedded
+          - generic [ref=e53]: IoT
+          - generic [ref=e54]: AMOLED
+        - link "View on GitHub" [ref=e55] [cursor=pointer]:
+          - /url: https://github.com/ryczek02/BikeESP
+          - text: View on GitHub
+          - img [ref=e56]
+      - generic [ref=e59]:
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: BikeESP v1.2
+                  - generic:
+                    - generic:
+                      - generic: "32.4"
+                      - generic: km/h
+                    - generic:
+                      - generic:
+                        - generic: DIST
+                        - generic: 47.2 km
+                      - generic:
+                        - generic: CADENCE
+                        - generic: 87 rpm
+                    - generic:
+                      - generic:
+                        - generic: HEART
+                        - generic: 156 bpm
+                      - generic:
+                        - generic: POWER
+                        - generic: 245 W
+                    - generic:
+                      - img

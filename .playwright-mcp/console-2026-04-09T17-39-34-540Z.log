@@ -1,0 +1,58 @@
+[     144ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756370646:70
+[     144ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756370646:71
+[     144ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756370646:72
+[   24486ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756399004:73
+[   24486ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756399004:74
+[   24486ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756399004:75
+[   24585ms] ReferenceError: screenPosition is not defined
+
+	in <unknown>
+	in T.svelte
+	in ESP32Scene.svelte
+	in Context.svelte
+	in Canvas.svelte
+	in BikeESP.svelte
+	in +page.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+    at $.add_svelte_meta.componentTag (http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756399004:289:20)
+    at Module.add_svelte_meta (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:970:10)
+    at consequent (http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756399004:287:10)
+    at http://localhost:5173/node_modules/.vite/deps/client-sFat0qUH.js?v=5603fcd5:186:47
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4731:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4831:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4156:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4365:9)
+    at BranchManager.ensure (http://localhost:5173/node_modules/.vite/deps/client-sFat0qUH.js?v=5603fcd5:186:34)
+    at update_branch (http://localhost:5173/node_modules/.vite/deps/client-sFat0qUH.js?v=5603fcd5:983:12)
+[   42191ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756416714:73
+[   42191ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756416714:74
+[   42192ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756416714:75
+[   42297ms] ReferenceError: screenPosition is not defined
+
+	in <unknown>
+	in T.svelte
+	in ESP32Scene.svelte
+	in Context.svelte
+	in Canvas.svelte
+	in BikeESP.svelte
+	in +page.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+    at $.add_svelte_meta.componentTag (http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756416714:269:20)
+    at Module.add_svelte_meta (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:970:10)
+    at consequent (http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756416714:267:10)
+    at http://localhost:5173/node_modules/.vite/deps/client-sFat0qUH.js?v=5603fcd5:186:47
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4731:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4831:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4156:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D0FXZw2p.js?v=5603fcd5:4365:9)
+    at BranchManager.ensure (http://localhost:5173/node_modules/.vite/deps/client-sFat0qUH.js?v=5603fcd5:186:34)
+    at update_branch (http://localhost:5173/node_modules/.vite/deps/client-sFat0qUH.js?v=5603fcd5:983:12)
+[   49838ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756424363:73
+[   49838ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756424363:74
+[   49838ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756424363:75

@@ -1,0 +1,9 @@
+[     136ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756424363:73
+[     136ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756424363:74
+[     136ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756424363:75
+[   37954ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756468332:73
+[   37954ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756468332:74
+[   37954ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756468332:75
+[   58420ms] [LOG] Model size: 34.2 41.2 10.9 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756488799:73
+[   58420ms] [LOG] Model center: -0.6 1.6 -0.8 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756488799:74
+[   58420ms] [LOG] Model box min: -17.7 -19.0 -6.2 max: 16.5 22.2 4.7 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756488799:75

@@ -1,0 +1,3 @@
+[     519ms] [LOG] Model size: Vector3 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756105594:69
+[     519ms] [LOG] Model center: Vector3 @ http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775756105594:70
+[     641ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:5173/favicon.ico:0

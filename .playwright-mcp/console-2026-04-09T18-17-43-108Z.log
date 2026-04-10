@@ -1,0 +1,23 @@
+[  329014ms] TypeError: Cannot read properties of undefined (reading 'scale')
+
+	in $effect.pre
+	in T.svelte
+	in ESP32Scene.svelte
+	in Context.svelte
+	in Canvas.svelte
+	in BikeESP.svelte
+	in +page.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+    at get scale (http://localhost:5173/src/lib/components/ESP32Scene.svelte?t=1775758979357:286:28)
+    at Object.getOwnPropertyDescriptor (http://localhost:5173/node_modules/.vite/deps/client-Dn9Vx_iY.js?v=edeb1621:3671:23)
+    at http://localhost:5173/node_modules/.vite/deps/dist-iToQuYYN.js?v=edeb1621:1483:15
+    at untrack (http://localhost:5173/node_modules/.vite/deps/runtime-CkjNeFyx.js?v=edeb1621:4993:10)
+    at $effect.pre (http://localhost:5173/node_modules/.vite/deps/dist-iToQuYYN.js?v=edeb1621:1482:3)
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-CkjNeFyx.js?v=edeb1621:4731:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-CkjNeFyx.js?v=edeb1621:4831:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-CkjNeFyx.js?v=edeb1621:4156:4)
+    at user_pre_effect (http://localhost:5173/node_modules/.vite/deps/runtime-CkjNeFyx.js?v=edeb1621:4219:9)
+    at useProps (http://localhost:5173/node_modules/.vite/deps/dist-iToQuYYN.js?v=edeb1621:1477:2)
