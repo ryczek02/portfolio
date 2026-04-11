@@ -2,6 +2,7 @@
 	import { Canvas } from '@threlte/core';
 	import ESP32Scene from './ESP32Scene.svelte';
 	import { browser } from '$app/environment';
+	import { isMobile } from '$lib/isMobile.svelte';
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
@@ -95,20 +96,22 @@
 				</svg>
 			</a>
 		</div>
-		<div
-			class="bikeesp-canvas"
-			class:dragging={isDragging}
-			onpointerdown={onCanvasPointerDown}
-			onpointermove={onCanvasPointerMove}
-			onpointerup={onCanvasPointerUp}
-			onpointerleave={onCanvasPointerUp}
-		>
-			{#if browser}
-				<Canvas>
-					<ESP32Scene {scrollProgress} {dragX} {dragY} config={deviceConfig} />
-				</Canvas>
-			{/if}
-		</div>
+		{#if !isMobile.value}
+			<div
+				class="bikeesp-canvas"
+				class:dragging={isDragging}
+				onpointerdown={onCanvasPointerDown}
+				onpointermove={onCanvasPointerMove}
+				onpointerup={onCanvasPointerUp}
+				onpointerleave={onCanvasPointerUp}
+			>
+				{#if browser}
+					<Canvas>
+						<ESP32Scene {scrollProgress} {dragX} {dragY} config={deviceConfig} />
+					</Canvas>
+				{/if}
+			</div>
+		{/if}
 	</div>
 </section>
 
@@ -235,19 +238,53 @@
 	@media (max-width: 768px) {
 		.bikeesp {
 			height: auto;
-			min-height: 75vh;
+			min-height: 0;
+			scroll-snap-align: none;
 		}
 
 		.bikeesp-inner {
 			grid-template-columns: 1fr;
+			height: auto;
 		}
 
 		.bikeesp-text {
 			padding: 60px 24px;
+			gap: 22px;
 		}
 
-		.bikeesp-canvas {
-			min-height: 400px;
+		.bikeesp-title {
+			font-size: 62px;
+		}
+
+		.bikeesp-subtitle {
+			font-size: 16px;
+		}
+
+		.bikeesp-desc p {
+			font-size: 17px;
+			line-height: 1.65;
+		}
+
+		.bikeesp-tags {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 10px;
+			width: 100%;
+			margin-top: 4px;
+		}
+
+		.bikeesp-tags .tag {
+			text-align: center;
+			padding: 10px 4px;
+			font-size: 13px;
+		}
+
+		.bikeesp-link {
+			margin-top: 8px;
+			align-self: stretch;
+			justify-content: center;
+			font-size: 15px;
+			padding: 18px 28px;
 		}
 	}
 </style>

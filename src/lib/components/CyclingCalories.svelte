@@ -2,6 +2,7 @@
 	import { Canvas } from '@threlte/core';
 	import CyclingScene from './CyclingScene.svelte';
 	import { browser } from '$app/environment';
+	import { isMobile } from '$lib/isMobile.svelte';
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
@@ -75,20 +76,22 @@
 				</svg>
 			</a>
 		</div>
-		<div
-			class="cycling-canvas"
-			class:dragging={isDragging}
-			onpointerdown={onPointerDown}
-			onpointermove={onPointerMove}
-			onpointerup={onPointerUp}
-			onpointerleave={onPointerUp}
-		>
-			{#if browser}
-				<Canvas>
-					<CyclingScene {scrollProgress} {dragX} {dragY} />
-				</Canvas>
-			{/if}
-		</div>
+		{#if !isMobile.value}
+			<div
+				class="cycling-canvas"
+				class:dragging={isDragging}
+				onpointerdown={onPointerDown}
+				onpointermove={onPointerMove}
+				onpointerup={onPointerUp}
+				onpointerleave={onPointerUp}
+			>
+				{#if browser}
+					<Canvas>
+						<CyclingScene {scrollProgress} {dragX} {dragY} />
+					</Canvas>
+				{/if}
+			</div>
+		{/if}
 	</div>
 </section>
 
@@ -197,9 +200,40 @@
 	.cycling-canvas.dragging { cursor: grabbing; }
 
 	@media (max-width: 768px) {
-		.cycling { height: auto; min-height: 100vh; }
-		.cycling-inner { grid-template-columns: 1fr; }
-		.cycling-text { padding: 60px 24px; }
-		.cycling-canvas { min-height: 400px; }
+		.cycling {
+			height: auto;
+			min-height: 0;
+			scroll-snap-align: none;
+		}
+		.cycling-inner {
+			grid-template-columns: 1fr;
+			height: auto;
+		}
+		.cycling-text {
+			padding: 60px 24px;
+			gap: 22px;
+		}
+		.cycling-title { font-size: 62px; }
+		.cycling-subtitle { font-size: 16px; }
+		.cycling-desc p { font-size: 17px; line-height: 1.65; }
+		.cycling-tags {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 10px;
+			width: 100%;
+			margin-top: 4px;
+		}
+		.cycling-tags .tag {
+			text-align: center;
+			padding: 10px 4px;
+			font-size: 13px;
+		}
+		.cycling-link {
+			margin-top: 8px;
+			align-self: stretch;
+			justify-content: center;
+			font-size: 15px;
+			padding: 18px 28px;
+		}
 	}
 </style>

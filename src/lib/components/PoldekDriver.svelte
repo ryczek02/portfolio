@@ -2,6 +2,7 @@
 	import { Canvas } from '@threlte/core';
 	import PoldekScene from './PoldekScene.svelte';
 	import { browser } from '$app/environment';
+	import { isMobile } from '$lib/isMobile.svelte';
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
@@ -53,20 +54,22 @@
 
 <section bind:this={sectionEl} class="poldek dot-pattern">
 	<div class="poldek-inner">
-		<div
-			class="poldek-canvas"
-			class:dragging={isDragging}
-			onpointerdown={onPointerDown}
-			onpointermove={onPointerMove}
-			onpointerup={onPointerUp}
-			onpointerleave={onPointerUp}
-		>
-			{#if browser}
-				<Canvas>
-					<PoldekScene {scrollProgress} {dragX} {dragY} />
-				</Canvas>
-			{/if}
-		</div>
+		{#if !isMobile.value}
+			<div
+				class="poldek-canvas"
+				class:dragging={isDragging}
+				onpointerdown={onPointerDown}
+				onpointermove={onPointerMove}
+				onpointerup={onPointerUp}
+				onpointerleave={onPointerUp}
+			>
+				{#if browser}
+					<Canvas>
+						<PoldekScene {scrollProgress} {dragX} {dragY} />
+					</Canvas>
+				{/if}
+			</div>
+		{/if}
 		<div class="poldek-text">
 			<div class="project-label">
 				<span class="label-line"></span>
@@ -218,9 +221,40 @@
 	}
 
 	@media (max-width: 768px) {
-		.poldek { height: auto; min-height: 100vh; }
-		.poldek-inner { grid-template-columns: 1fr; }
-		.poldek-text { padding: 60px 24px; order: -1; }
-		.poldek-canvas { min-height: 400px; }
+		.poldek {
+			height: auto;
+			min-height: 0;
+			scroll-snap-align: none;
+		}
+		.poldek-inner {
+			grid-template-columns: 1fr;
+			height: auto;
+		}
+		.poldek-text {
+			padding: 60px 24px;
+			gap: 22px;
+		}
+		.poldek-title { font-size: 62px; }
+		.poldek-subtitle { font-size: 16px; }
+		.poldek-desc p { font-size: 17px; line-height: 1.65; }
+		.poldek-tags {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 10px;
+			width: 100%;
+			margin-top: 4px;
+		}
+		.poldek-tags .tag {
+			text-align: center;
+			padding: 10px 4px;
+			font-size: 13px;
+		}
+		.poldek-link {
+			margin-top: 8px;
+			align-self: stretch;
+			justify-content: center;
+			font-size: 15px;
+			padding: 18px 28px;
+		}
 	}
 </style>

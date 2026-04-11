@@ -250,7 +250,7 @@
 
 	@media (max-width: 768px) {
 		.hero-inner {
-			padding: 30px 24px;
+			padding: 30px 24px 90px;
 		}
 
 		.hero-top {
@@ -261,13 +261,46 @@
 
 		.hero-bottom {
 			flex-direction: column;
-			gap: 30px;
-			align-items: flex-start;
+			gap: 44px;
+			align-items: center;
+			flex: 1.3;
+			justify-content: flex-start;
+			padding-top: 48px;
+		}
+
+		.hero-role {
+			text-align: center;
+		}
+
+		.hero-role p {
+			font-size: 17px;
+			line-height: 1.7;
 		}
 
 		.hero-areas {
-			gap: 24px;
+			gap: 20px 28px;
 			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.area-num {
+			font-size: 12px;
+		}
+
+		.area-name {
+			font-size: 15px;
+		}
+
+		.scroll-indicator {
+			bottom: 20px;
+		}
+
+		.scroll-line {
+			height: 24px;
+		}
+
+		.scroll-text {
+			font-size: 10px;
 		}
 	}
 </style>

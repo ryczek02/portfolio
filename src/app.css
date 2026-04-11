@@ -51,6 +51,12 @@ html {
 	scroll-snap-type: y proximity;
 }
 
+@media (max-width: 768px) {
+	html {
+		scroll-snap-type: none;
+	}
+}
+
 body {
 	background: var(--bg);
 	color: var(--fg);
