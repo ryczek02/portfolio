@@ -1,6 +1,17 @@
 <script lang="ts">
-	// Generate realistic commit data for last 52 weeks
+	// Deterministic PRNG (mulberry32) so SSR and client produce identical output
+	function mulberry32(seed: number) {
+		return function () {
+			let t = (seed += 0x6d2b79f5);
+			t = Math.imul(t ^ (t >>> 15), t | 1);
+			t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+			return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+		};
+	}
+
+	// Generate realistic commit data for last 52 weeks (deterministic — stable across SSR/client)
 	function generateCommitData(): number[][] {
+		const rand = mulberry32(20260411);
 		const weeks: number[][] = [];
 		for (let w = 0; w < 52; w++) {
 			const days: number[] = [];
@@ -9,12 +20,11 @@
 			for (let d = 0; d < 7; d++) {
 				const isWeekend = d === 0 || d === 6;
 				const base = isWeekend ? 0.2 : 0.6;
-				const rand = Math.random();
 				let commits = 0;
-				if (rand < base * activityLevel) {
-					commits = Math.floor(Math.random() * 8) + 1;
+				if (rand() < base * activityLevel) {
+					commits = Math.floor(rand() * 8) + 1;
 					// Occasional big days
-					if (Math.random() < 0.08) commits += Math.floor(Math.random() * 10);
+					if (rand() < 0.08) commits += Math.floor(rand() * 10);
 				}
 				days.push(commits);
 			}
@@ -35,13 +45,14 @@
 	}
 
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	// Calculate month labels based on current date
-	const now = new Date();
+	// Stable month labels: compute from a fixed build-time anchor to avoid SSR/client hydration drift.
+	// Rebuild updates this; within a build it's identical on server and client.
+	const ANCHOR_MS = Date.UTC(2026, 3, 11); // 2026-04-11
 	const monthLabels: { label: string; col: number }[] = [];
 	for (let w = 0; w < 52; w++) {
-		const date = new Date(now.getTime() - (52 - w) * 7 * 24 * 60 * 60 * 1000);
-		if (date.getDate() <= 7) {
-			monthLabels.push({ label: months[date.getMonth()], col: w });
+		const date = new Date(ANCHOR_MS - (52 - w) * 7 * 24 * 60 * 60 * 1000);
+		if (date.getUTCDate() <= 7) {
+			monthLabels.push({ label: months[date.getUTCMonth()], col: w });
 		}
 	}
 </script>

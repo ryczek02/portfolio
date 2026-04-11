@@ -1,14 +1,14 @@
 // Reactive theme store using Svelte 5 runes
-let current = $state<'dark' | 'light'>('dark');
-
-if (typeof localStorage !== 'undefined') {
+function readInitialTheme(): 'dark' | 'light' {
+	if (typeof localStorage === 'undefined') return 'dark';
 	const stored = localStorage.getItem('theme');
-	if (stored === 'light' || stored === 'dark') {
-		current = stored;
-	}
-	if (typeof document !== 'undefined') {
-		document.documentElement.classList.toggle('light', current === 'light');
-	}
+	return stored === 'light' || stored === 'dark' ? stored : 'dark';
+}
+
+let current = $state<'dark' | 'light'>(readInitialTheme());
+
+if (typeof document !== 'undefined') {
+	document.documentElement.classList.toggle('light', current === 'light');
 }
 
 export const theme = {

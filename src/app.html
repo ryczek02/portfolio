@@ -3,11 +3,29 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Łukasz Ryczko — Portfolio</title>
-		<meta name="description" content="Software engineer focused on backend systems, AI integrations and embedded projects." />
+		<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="color-scheme" content="dark light" />
+
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-		<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<script>
+			// FOUC-prevention: apply stored theme before hydration
+			(function () {
+				try {
+					var t = localStorage.getItem('theme');
+					if (t === 'light') document.documentElement.classList.add('light');
+				} catch (e) {}
+			})();
+		</script>
+
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Canvas } from '@threlte/core';
 	import PoldekScene from './PoldekScene.svelte';
+	import { browser } from '$app/environment';
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
@@ -60,9 +61,11 @@
 			onpointerup={onPointerUp}
 			onpointerleave={onPointerUp}
 		>
-			<Canvas>
-				<PoldekScene {scrollProgress} {dragX} {dragY} />
-			</Canvas>
+			{#if browser}
+				<Canvas>
+					<PoldekScene {scrollProgress} {dragX} {dragY} />
+				</Canvas>
+			{/if}
 		</div>
 		<div class="poldek-text">
 			<div class="project-label">

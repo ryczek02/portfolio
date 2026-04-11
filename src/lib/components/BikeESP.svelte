@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Canvas } from '@threlte/core';
 	import ESP32Scene from './ESP32Scene.svelte';
+	import { browser } from '$app/environment';
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
@@ -102,9 +103,11 @@
 			onpointerup={onCanvasPointerUp}
 			onpointerleave={onCanvasPointerUp}
 		>
-			<Canvas>
-				<ESP32Scene {scrollProgress} {dragX} {dragY} config={deviceConfig} />
-			</Canvas>
+			{#if browser}
+				<Canvas>
+					<ESP32Scene {scrollProgress} {dragX} {dragY} config={deviceConfig} />
+				</Canvas>
+			{/if}
 		</div>
 	</div>
 </section>
