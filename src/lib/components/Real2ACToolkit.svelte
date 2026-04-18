@@ -177,6 +177,7 @@
 		line-height: 1.7;
 		color: #cccccc;
 		max-width: 440px;
+		text-align: justify;
 	}
 
 	.r2ac-tags {
