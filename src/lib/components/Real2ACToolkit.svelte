@@ -71,10 +71,7 @@
 			<p class="r2ac-subtitle">Plugin for Fluffy's Track Exporter [0.5.5]</p>
 			<div class="r2ac-desc">
 				<p>
-					Transfer real-world locations straight into Assetto Corsa
-					in just a few minutes. Leveraging point cloud data and
-					automated mesh generation, this toolkit bridges the gap between
-					reality and sim racing with minimal manual effort.
+					Transfer real-world locations straight into Assetto Corsa in just a few minutes. Leveraging point cloud data and automated mesh generation, this toolkit bridges the gap between reality and sim racing with minimal manual effort.
 				</p>
 			</div>
 			<div class="r2ac-tags">
@@ -177,6 +174,7 @@
 		line-height: 1.7;
 		color: #cccccc;
 		max-width: 440px;
+		text-align: justify;
 	}
 
 	.r2ac-tags {
