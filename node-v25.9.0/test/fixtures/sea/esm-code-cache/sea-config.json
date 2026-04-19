@@ -1,7 +1,0 @@
-{
-  "main": "sea.mjs",
-  "output": "sea",
-  "mainFormat": "module",
-  "useCodeCache": true,
-  "disableExperimentalSEAWarning": true
-}

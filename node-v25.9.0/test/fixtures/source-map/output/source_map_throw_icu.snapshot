@@ -1,9 +1,0 @@
-<project-root>/test/fixtures/source-map/icu.jsx:3
-    ("あ 🐕 🐕", throw Error("an error"));
-     ^
-
-Error: an error
-    at Object.createElement (<project-root>/test/fixtures/source-map/icu.jsx:3:23)
-    at Object.<anonymous> (<project-root>/test/fixtures/source-map/icu.jsx:9:5)
-
-Node.js <node-version>
