@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Hero from '$lib/components/Hero.svelte';
-	import Real2ACToolkit from '$lib/components/Real2ACToolkit.svelte';
+	import NeuronAI from '$lib/components/NeuronAI.svelte';
+	import TorKielce from '$lib/components/TorKielce.svelte';
 	import BikeESP from '$lib/components/BikeESP.svelte';
 	import PoldekDriver from '$lib/components/PoldekDriver.svelte';
 	import CyclingCalories from '$lib/components/CyclingCalories.svelte';
@@ -19,10 +20,11 @@
 	<Hero />
 
 	<div id="projects">
-		<Real2ACToolkit />
 		<BikeESP />
 		<PoldekDriver />
 		<CyclingCalories />
+		<NeuronAI />
+		<TorKielce />
 	</div>
 
 	<TechStack />

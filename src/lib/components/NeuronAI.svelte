@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Canvas } from '@threlte/core';
-	import ESP32Scene from './ESP32Scene.svelte';
+	import NeuralNetScene from './NeuralNetScene.svelte';
 	import { browser } from '$app/environment';
 	import { isMobile } from '$lib/isMobile.svelte';
 
@@ -8,7 +8,6 @@
 	let scrollProgress = $state(0);
 	let isNearViewport = $state(false);
 
-	// Drag rotation: łapiesz za model i kręcisz
 	let dragX = $state(0);
 	let dragY = $state(0);
 	let isDragging = $state(false);
@@ -17,12 +16,8 @@
 	let dragBaseX = 0;
 	let dragBaseY = 0;
 
-	const deviceConfig = {
-		baseX: 0,       // patrzący na usera (0 = prosto)
-		baseY: 0,
-		dragSensitivity: 0.002,
-		scale: 0.6,
-	};
+	const dragSensitivity = 0.002;
+	const maxAngle = 15 * Math.PI / 180;
 
 	function onCanvasPointerDown(e: PointerEvent) {
 		isDragging = true;
@@ -33,12 +28,10 @@
 		(e.target as HTMLElement).setPointerCapture(e.pointerId);
 	}
 
-	const maxAngle = 15 * Math.PI / 180; // 15°
-
 	function onCanvasPointerMove(e: PointerEvent) {
 		if (!isDragging) return;
-		const rawX = dragBaseX + (e.clientX - dragStartX) * deviceConfig.dragSensitivity;
-		const rawY = dragBaseY + (e.clientY - dragStartY) * deviceConfig.dragSensitivity;
+		const rawX = dragBaseX + (e.clientX - dragStartX) * dragSensitivity;
+		const rawY = dragBaseY + (e.clientY - dragStartY) * dragSensitivity;
 		dragX = Math.max(-maxAngle, Math.min(maxAngle, rawX));
 		dragY = Math.max(-maxAngle, Math.min(maxAngle, rawY));
 	}
@@ -78,30 +71,31 @@
 	});
 </script>
 
-<section bind:this={sectionEl} class="bikeesp dot-pattern">
-	<div class="bikeesp-inner">
-		<div class="bikeesp-text">
+<section bind:this={sectionEl} class="neuronai dot-pattern">
+	<div class="neuronai-inner">
+		<div class="neuronai-text">
 			<div class="project-label">
 				<span class="label-line"></span>
-				<span class="label-text">01 / PROJECT</span>
+				<span class="label-text">04 / OPEN SOURCE</span>
 			</div>
-			<h2 class="bikeesp-title">BikeESP</h2>
-			<p class="bikeesp-subtitle">ESP32 based bike computer and telemetry device</p>
-			<div class="bikeesp-desc">
+			<h2 class="neuronai-title">Neuron<br/>AI</h2>
+			<p class="neuronai-subtitle">PHP Agentic AI Framework — Contributor</p>
+			<div class="neuronai-desc">
 				<p>
-					Custom-built cycling computer powered by the ESP32-S3 microcontroller
-					with AMOLED touch display. Real-time telemetry, GPS tracking,
-					and sensor data acquisition for performance analysis.
+					Contributing to Neuron AI — an all-in-one framework for building
+					AI agents and RAG applications in PHP. Multi-provider support
+					for OpenAI, Anthropic, and Gemini with seamless Laravel
+					and Symfony integration.
 				</p>
 			</div>
-			<div class="bikeesp-tags">
-				<span class="tag" style="color:#f34b7d; border-color:#f34b7d;">C++</span>
-				<span class="tag" style="color:#00ff88; border-color:#00ff88;">ESP32</span>
-				<span class="tag" style="color:#e8a317; border-color:#e8a317;">Embedded</span>
-				<span class="tag" style="color:#3b82f6; border-color:#3b82f6;">IoT</span>
+			<div class="neuronai-tags">
+				<span class="tag">PHP</span>
+				<span class="tag">AI Agents</span>
+				<span class="tag">Open Source</span>
+				<span class="tag">RAG</span>
 			</div>
-			<a href="https://github.com/ryczek02/BikeESP" target="_blank" rel="noopener" class="bikeesp-link">
-				View on GitHub
+			<a href="https://www.neuron-ai.dev/" target="_blank" rel="noopener" class="neuronai-link">
+				View Project
 				<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<path d="M1 13L13 1M13 1H3M13 1V11" stroke="currentColor" stroke-width="1.5"/>
 				</svg>
@@ -109,7 +103,7 @@
 		</div>
 		{#if !isMobile.value}
 			<div
-				class="bikeesp-canvas"
+				class="neuronai-canvas"
 				class:dragging={isDragging}
 				onpointerdown={onCanvasPointerDown}
 				onpointermove={onCanvasPointerMove}
@@ -118,7 +112,7 @@
 			>
 				{#if browser && isNearViewport}
 					<Canvas>
-						<ESP32Scene {scrollProgress} {dragX} {dragY} config={deviceConfig} />
+						<NeuralNetScene {scrollProgress} {dragX} {dragY} />
 					</Canvas>
 				{/if}
 			</div>
@@ -127,16 +121,17 @@
 </section>
 
 <style>
-	.bikeesp {
+	.neuronai {
 		width: 100%;
 		height: 100vh;
-		border-top: 1px solid var(--border);
-		border-bottom: 1px solid var(--border);
+		border-top: 1px solid #2d1a4a;
+		border-bottom: 1px solid #2d1a4a;
 		position: relative;
 		scroll-snap-align: start;
+		background: linear-gradient(135deg, #0f0520 0%, #0d0d0d 40%, #100818 100%);
 	}
 
-	.bikeesp-inner {
+	.neuronai-inner {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 0;
@@ -145,7 +140,7 @@
 		margin: 0 auto;
 	}
 
-	.bikeesp-text {
+	.neuronai-text {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -161,40 +156,42 @@
 		font-size: 11px;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
-		color: var(--fg-dim);
+		color: #8b5cf6;
 	}
 
 	.label-line {
 		display: block;
 		width: 40px;
 		height: 1px;
-		background: var(--fg-dim);
+		background: #8b5cf6;
 	}
 
-	.bikeesp-title {
+	.neuronai-title {
 		font-family: var(--font-sans);
 		font-size: clamp(48px, 6vw, 80px);
 		font-weight: 900;
 		letter-spacing: -0.03em;
 		line-height: 0.95;
 		text-transform: uppercase;
+		color: #a78bfa;
+		text-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
 	}
 
-	.bikeesp-subtitle {
+	.neuronai-subtitle {
 		font-family: var(--font-mono);
 		font-size: 14px;
-		color: var(--fg-dim);
+		color: #9775d4;
 		letter-spacing: 0.02em;
 	}
 
-	.bikeesp-desc p {
+	.neuronai-desc p {
 		font-size: 15px;
 		line-height: 1.7;
 		color: #cccccc;
 		max-width: 440px;
 	}
 
-	.bikeesp-tags {
+	.neuronai-tags {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
@@ -206,12 +203,12 @@
 		font-size: 11px;
 		letter-spacing: 0.05em;
 		padding: 6px 14px;
-		border: 1px solid var(--border-bright);
-		color: var(--fg-dim);
+		border: 1px solid #8b5cf6;
+		color: #a78bfa;
 		text-transform: uppercase;
 	}
 
-	.bikeesp-link {
+	.neuronai-link {
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
@@ -219,20 +216,20 @@
 		font-size: 13px;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
-		color: var(--fg);
-		border: 1px solid var(--fg);
+		color: #a78bfa;
+		border: 1px solid #a78bfa;
 		padding: 14px 28px;
 		margin-top: 16px;
 		transition: background 0.2s, color 0.2s;
 		align-self: flex-start;
 	}
 
-	.bikeesp-link:hover {
-		background: var(--fg);
-		color: var(--bg);
+	.neuronai-link:hover {
+		background: #a78bfa;
+		color: #0d0d0d;
 	}
 
-	.bikeesp-canvas {
+	.neuronai-canvas {
 		position: relative;
 		height: 100%;
 		z-index: 2;
@@ -240,57 +237,59 @@
 		align-items: center;
 		justify-content: center;
 		cursor: grab;
+		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+		mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%);
 	}
 
-	.bikeesp-canvas.dragging {
+	.neuronai-canvas.dragging {
 		cursor: grabbing;
 	}
 
 	@media (max-width: 768px) {
-		.bikeesp {
+		.neuronai {
 			height: auto;
 			min-height: 0;
 			scroll-snap-align: none;
 		}
 
-		.bikeesp-inner {
+		.neuronai-inner {
 			grid-template-columns: 1fr;
 			height: auto;
 		}
 
-		.bikeesp-text {
+		.neuronai-text {
 			padding: 60px 24px;
 			gap: 22px;
 		}
 
-		.bikeesp-title {
+		.neuronai-title {
 			font-size: 62px;
 		}
 
-		.bikeesp-subtitle {
+		.neuronai-subtitle {
 			font-size: 16px;
 		}
 
-		.bikeesp-desc p {
+		.neuronai-desc p {
 			font-size: 17px;
 			line-height: 1.65;
 		}
 
-		.bikeesp-tags {
+		.neuronai-tags {
 			display: grid;
-			grid-template-columns: repeat(4, 1fr);
+			grid-template-columns: repeat(2, 1fr);
 			gap: 10px;
 			width: 100%;
 			margin-top: 4px;
 		}
 
-		.bikeesp-tags .tag {
+		.neuronai-tags .tag {
 			text-align: center;
 			padding: 10px 4px;
 			font-size: 13px;
 		}
 
-		.bikeesp-link {
+		.neuronai-link {
 			margin-top: 8px;
 			align-self: stretch;
 			justify-content: center;

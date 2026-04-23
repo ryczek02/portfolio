@@ -6,6 +6,7 @@
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
+	let isNearViewport = $state(false);
 
 	let dragX = $state(0);
 	let dragY = $state(0);
@@ -50,26 +51,20 @@
 		handleScroll();
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
+
+	$effect(() => {
+		if (!sectionEl || !browser) return;
+		const observer = new IntersectionObserver(
+			([entry]) => { isNearViewport = entry.isIntersecting; },
+			{ rootMargin: '500px' }
+		);
+		observer.observe(sectionEl);
+		return () => observer.disconnect();
+	});
 </script>
 
 <section bind:this={sectionEl} class="poldek dot-pattern">
 	<div class="poldek-inner">
-		{#if !isMobile.value}
-			<div
-				class="poldek-canvas"
-				class:dragging={isDragging}
-				onpointerdown={onPointerDown}
-				onpointermove={onPointerMove}
-				onpointerup={onPointerUp}
-				onpointerleave={onPointerUp}
-			>
-				{#if browser}
-					<Canvas>
-						<PoldekScene {scrollProgress} {dragX} {dragY} />
-					</Canvas>
-				{/if}
-			</div>
-		{/if}
 		<div class="poldek-text">
 			<div class="project-label">
 				<span class="label-line"></span>
@@ -97,6 +92,22 @@
 				</svg>
 			</a>
 		</div>
+		{#if !isMobile.value}
+			<div
+				class="poldek-canvas"
+				class:dragging={isDragging}
+				onpointerdown={onPointerDown}
+				onpointermove={onPointerMove}
+				onpointerup={onPointerUp}
+				onpointerleave={onPointerUp}
+			>
+				{#if browser && isNearViewport}
+					<Canvas>
+						<PoldekScene {scrollProgress} {dragX} {dragY} />
+					</Canvas>
+				{/if}
+			</div>
+		{/if}
 	</div>
 </section>
 
@@ -213,7 +224,7 @@
 		align-items: center;
 		justify-content: center;
 		cursor: grab;
-		padding-left: 40px;
+		padding-right: 40px;
 	}
 
 	.poldek-canvas.dragging {

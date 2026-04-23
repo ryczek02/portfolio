@@ -226,7 +226,7 @@
 		justify-content: center;
 		cursor: grab;
 		-webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-		mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+		mask-image: linear-gradient(to right, transparent 0%, black 40%, black 60%, transparent 100%);
 	}
 
 	.r2ac-canvas.dragging {

@@ -6,6 +6,7 @@
 
 	let sectionEl: HTMLElement | undefined = $state();
 	let scrollProgress = $state(0);
+	let isNearViewport = $state(false);
 
 	let dragX = $state(0);
 	let dragY = $state(0);
@@ -44,6 +45,16 @@
 		window.addEventListener('scroll', handleScroll, { passive: true });
 		handleScroll();
 		return () => window.removeEventListener('scroll', handleScroll);
+	});
+
+	$effect(() => {
+		if (!sectionEl || !browser) return;
+		const observer = new IntersectionObserver(
+			([entry]) => { isNearViewport = entry.isIntersecting; },
+			{ rootMargin: '500px' }
+		);
+		observer.observe(sectionEl);
+		return () => observer.disconnect();
 	});
 </script>
 
@@ -85,7 +96,7 @@
 				onpointerup={onPointerUp}
 				onpointerleave={onPointerUp}
 			>
-				{#if browser}
+				{#if browser && isNearViewport}
 					<Canvas>
 						<CyclingScene {scrollProgress} {dragX} {dragY} />
 					</Canvas>
