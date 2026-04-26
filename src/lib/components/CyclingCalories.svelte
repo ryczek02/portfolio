@@ -147,10 +147,10 @@
 	.label-line { display: block; width: 40px; height: 1px; background: var(--fg-dim); }
 
 	.cycling-title {
-		font-family: var(--font-sans);
+		font-family: var(--font-display);
 		font-size: clamp(48px, 6vw, 80px);
 		font-weight: 900;
-		letter-spacing: -0.03em;
+		letter-spacing: -0.02em;
 		line-height: 0.95;
 		text-transform: uppercase;
 	}

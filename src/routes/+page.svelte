@@ -10,10 +10,8 @@
 	import GitHubActivity from '$lib/components/GitHubActivity.svelte';
 	import Experience from '$lib/components/Experience.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 </script>
 
-<ThemeToggle />
 <Navbar />
 
 <main>

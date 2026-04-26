@@ -165,6 +165,8 @@
 	}
 
 	.line-2 {
+		font-family: var(--font-display);
+		letter-spacing: -0.02em;
 		color: var(--bg);
 		-webkit-text-stroke: 0;
 		text-shadow:
