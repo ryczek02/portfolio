@@ -35,6 +35,7 @@
 			<a href="https://www.linkedin.com/in/lukaszryczko/" target="_blank" rel="noopener">LinkedIn</a>
 			<a href="https://www.youtube.com/@ukaszryczko755" target="_blank" rel="noopener">YouTube</a>
 			<a href="https://github.com/ryczek02" target="_blank" rel="noopener">GitHub</a>
+			<a href="/cv" class="cv-link">CV</a>
 		</div>
 		<button
 			class="hamburger"
@@ -56,6 +57,7 @@
 		<a href="https://www.linkedin.com/in/lukaszryczko/" target="_blank" rel="noopener" onclick={closeMenu}>LinkedIn</a>
 		<a href="https://www.youtube.com/@ukaszryczko755" target="_blank" rel="noopener" onclick={closeMenu}>YouTube</a>
 		<a href="https://github.com/ryczek02" target="_blank" rel="noopener" onclick={closeMenu}>GitHub</a>
+		<a href="/cv" onclick={closeMenu}>CV</a>
 	</div>
 </div>
 
@@ -123,6 +125,17 @@
 
 	.nav-links a:hover {
 		color: var(--fg);
+	}
+
+	.nav-links a.cv-link {
+		border: 1px solid var(--border-bright);
+		padding: 8px 14px;
+		color: var(--fg);
+	}
+
+	.nav-links a.cv-link:hover {
+		background: var(--fg);
+		color: var(--bg);
 	}
 
 	.hamburger {
@@ -207,6 +220,7 @@
 	.mobile-menu.open .mobile-menu-inner a:nth-child(2) { transition-delay: 0.14s; }
 	.mobile-menu.open .mobile-menu-inner a:nth-child(3) { transition-delay: 0.20s; }
 	.mobile-menu.open .mobile-menu-inner a:nth-child(4) { transition-delay: 0.26s; }
+	.mobile-menu.open .mobile-menu-inner a:nth-child(5) { transition-delay: 0.32s; }
 
 	@media (max-width: 768px) {
 		.navbar {

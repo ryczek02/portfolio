@@ -1,0 +1,177 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,left=16mm,right=16mm,top=8mm,bottom=14mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{lmroman10-regular.otf}[
+  BoldFont = lmroman10-bold.otf,
+  ItalicFont = lmroman10-italic.otf,
+  BoldItalicFont = lmroman10-bolditalic.otf
+]
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+
+\pagestyle{empty}
+\definecolor{cvolive}{HTML}{4F5A3A}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\setlist[itemize]{leftmargin=*, topsep=0pt, itemsep=1pt, parsep=0pt, before=\vspace{-4pt}, after=\vspace{10pt}}
+
+\newcommand{\sectiontitle}[1]{%
+  \vspace{10pt}%
+  {\large\bfseries\MakeUppercase{#1}}\\[-2pt]%
+  {\color{cvolive}\hrule}%
+  \vspace{4pt}%
+}
+
+\newcommand{\pagetopsectiontitle}[1]{%
+  \vspace{4pt}%
+  {\large\bfseries\MakeUppercase{#1}}\\[-2pt]%
+  {\color{cvolive}\hrule}%
+  \vspace{4pt}%
+}
+
+\newcommand{\roleentry}[4]{%
+  \textbf{#1}\hfill{\small\textbf{\textcolor{cvolive}{#2}}}\\
+  \textit{#3}\\[-5pt]
+  #4
+  \vspace{0pt}
+}
+
+\newcommand{\roundportrait}[1]{%
+  \begin{tikzpicture}
+    \draw[cvolive, line width=.8pt, opacity=.75] (0,0) circle (15.6mm);
+    \clip (0,0) circle (15mm);
+    \node at (0,-1mm) {\includegraphics[width=32mm,height=32mm]{#1}};
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\vspace*{-3mm}
+
+\noindent
+\begin{minipage}[t]{0.70\textwidth}
+  \vspace{0pt}
+  {\Huge\bfseries Łukasz Ryczko}\\[2pt]
+  {\Large Backend Developer}\\[4pt]
+  Kraków, Poland \\
+  \href{mailto:lukaszryczko02@gmail.com}{lukaszryczko02@gmail.com} \quad
+  +48 796 871 413\\
+  \href{https://linkedin.com/in/lukaszryczko}{linkedin.com/in/lukaszryczko} \quad
+  \href{https://github.com/ryczek02}{github.com/ryczek02}\\
+  \href{https://lukaszryczko.pl}{lukaszryczko.pl}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.24\textwidth}
+  \vspace{0pt}
+  \raggedleft
+  \roundportrait{1778622685458.jpg}
+\end{minipage}
+
+\sectiontitle{Profile}
+Software developer based in Kraków with 5+ years of professional experience. I build,
+modernize and maintain backend applications, with a strong focus on PHP, Laravel,
+system design, database work and long-term maintainability. I enjoy international team
+environments and actively explore networking, reverse engineering, electronics and AI tooling.
+
+\sectiontitle{Skills}
+\begin{tabular}{@{}p{0.30\textwidth}p{0.64\textwidth}@{}}
+\textbf{Backend} & PHP, Laravel, PHPUnit, Pest, Filament, Golang, Goravel, Python 3, Flask, FastAPI \\
+\textbf{Databases} & MySQL, PostgreSQL, Redis \\
+\textbf{Infrastructure} & Docker, AWS, Linux, CI/CD \\
+\textbf{Frontend / Mobile} & JavaScript, Vue, React, React Native \\
+\textbf{Tools} & Git, Postman, Composer, npm, Claude Code, Cursor, LangChain \\
+\end{tabular}
+
+\sectiontitle{Work Experience}
+
+\roleentry{Zendesk}{July 2026 -- Present}{Backend Developer}{
+\begin{itemize}
+  \item Building and maintaining backend services for product-oriented application features.
+  \item Improving service reliability, delivery workflows and day-to-day developer experience.
+  \item Collaborating with international engineering teams on scalable backend systems.
+\end{itemize}}
+
+\roleentry{NorthGravity}{July 2025 -- July 2026}{Backend Developer}{
+\begin{itemize}
+  \item Refactoring legacy codebases into cleaner, more maintainable backend modules.
+  \item Maintaining production applications and improving CI/CD delivery pipelines.
+  \item Supporting international team workflows through code reviews and technical documentation.
+\end{itemize}}
+
+\roleentry{Fingoweb}{May 2022 -- August 2025}{Backend Developer}{
+\begin{itemize}
+  \item Modernizing legacy systems across multiple PHP frameworks and long-lived applications.
+  \item Designing database models, backend architecture and API-oriented application modules.
+  \item Translating business requirements into maintainable features for international clients.
+\end{itemize}}
+
+\roleentry{WebFalcon}{May 2021}{PHP Intern}{
+\begin{itemize}
+  \item Learning Laravel through practical backend tasks, code reviews and framework conventions.
+  \item Building foundations in code quality, clean architecture and maintainability principles.
+\end{itemize}}
+
+\roleentry{Freelancer}{December 2020 -- Present}{Web Developer, React Native Developer}{
+\begin{itemize}
+  \item Delivering end-to-end web and mobile application work for independent clients.
+  \item Combining backend implementation with JavaScript and React Native interfaces.
+\end{itemize}}
+
+\newpage
+
+\pagetopsectiontitle{Education}
+\textbf{Bachelor of Engineering in Computer Science}\hfill{\small\textbf{\textcolor{cvolive}{2022 -- 2026}}}\\
+Programming and Data Analysis, WSEI Kraków
+
+\vspace{5pt}
+\textbf{Computer Science}\hfill{\small\textbf{\textcolor{cvolive}{2018 -- 2022}}}\\
+Zespół Szkół Elektrycznych nr 1 w Krakowie
+
+\sectiontitle{Projects}
+\textbf{BikeESP}\\
+{\small\textbf{Tech:} ESP32-S3, C++, LVGL, GPS, embedded systems}\\
+ESP32-S3 cycling computer and telemetry device with AMOLED touch display, GPS tracking
+and real-time sensor data acquisition for performance analysis.
+
+\vspace{4pt}
+\textbf{Cycling Calories ML}\\
+{\small\textbf{Tech:} Python, FastAPI, scikit-learn, Strava API, regression models}\\
+Machine learning pipeline for predicting cycling calorie expenditure from Strava data,
+including feature engineering, regression model comparison and FastAPI route prediction.
+
+\vspace{4pt}
+\textbf{NeuronAI -- PHP Agentic Framework}\\
+{\small\textbf{Tech:} PHP, Laravel, Symfony, AI agents, RAG, LLM integrations}\\
+Open-source contribution to a PHP framework for AI agents and RAG applications,
+including multi-provider AI integrations and Laravel / Symfony ecosystem support.
+
+\vspace{4pt}
+\textbf{Poldek Driver}\\
+{\small\textbf{Tech:} C++, TCP, Winsock2, networking, RCON}\\
+Multiplayer networking layer for PolMod, built around TCP / Winsock2 architecture with
+chat relay, direct messaging and RCON authentication.
+
+\vspace{4pt}
+\textbf{Tor Kielce}\\
+{\small\textbf{Tech:} Blender, 3D modelling, Assetto Corsa, real-time simulation}\\
+Co-author of an Assetto Corsa track mod recreating the Kielce racing circuit, covering
+3D modelling, environment design and real-time simulation optimization.
+
+\sectiontitle{Technical Interests}
+AI agents, backend architecture, embedded systems, reverse engineering, networking,
+developer tooling and racing simulation technology.
+
+\sectiontitle{Languages}
+Polish -- native \quad English -- B2
+
+\vfill
+{\scriptsize
+I agree to the processing of personal data provided in this document for realising the recruitment process pursuant to the Personal Data Protection Act of 10 May 2018 (Journal of Laws 2018, item 1000) and in agreement with Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation).
+}
+
+\end{document}
