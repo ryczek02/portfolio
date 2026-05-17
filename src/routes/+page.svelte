@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Hero from '$lib/components/Hero.svelte';
+	import ARACProject from '$lib/components/ARACProject.svelte';
 	import NeuronAI from '$lib/components/NeuronAI.svelte';
 	import TorKielce from '$lib/components/TorKielce.svelte';
 	import BikeESP from '$lib/components/BikeESP.svelte';
@@ -18,6 +19,7 @@
 	<Hero />
 
 	<div id="projects">
+		<ARACProject />
 		<BikeESP />
 		<PoldekDriver />
 		<CyclingCalories />
