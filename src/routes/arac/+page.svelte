@@ -1,10 +1,32 @@
 <script lang="ts">
 	const patreonLabel = 'Patreon (coming soon)';
 	const steps = ['Download iOS app', 'Enable ARAC Camera', 'Start recording'];
-	const presentations = [
-		{ title: 'Phone-controlled camera', copy: 'Walk around the rig and let the in-game camera follow your hand like a real filming setup.', file: 'phone-camera-demo.webm' },
-		{ title: 'Cinematic chase shots', copy: 'Capture rolling shots, close passes, pit lane details, and cockpit motion without fighting static camera tools.', file: 'cinematic-chase-demo.webm' },
-		{ title: 'Fast creator workflow', copy: 'Recenter, frame the car, and keep filming. ARAC is made for short clips, reels, edits, and mod showcases.', file: 'creator-workflow-demo.webm' }
+	type CameraFeature = {
+		eyebrow: string;
+		title: string;
+		copy: string;
+		videoSrc?: string;
+	};
+
+	const cameraFeatures: CameraFeature[] = [
+		{
+			eyebrow: 'Live demo',
+			title: 'Phone-controlled camera',
+			copy: 'Walk around the rig and let the in-game view follow your hand with natural, handheld movement.',
+			videoSrc: '/arac/phone-controlled-camera.webm'
+		},
+		{
+			eyebrow: 'Physical framing',
+			title: 'Chase shots without camera-tool wrestling',
+			copy: 'Track a pass, dip into cockpit details, or orbit the car using your phone instead of nudging sliders.',
+			videoSrc: '/arac/chase-shots.webm'
+		},
+		{
+			eyebrow: 'Creator flow',
+			title: 'Ready for reels, mods, and quick takes',
+			copy: 'Recenter, frame the car, record the move. ARAC keeps setup short so the clip stays the focus.',
+			videoSrc: '/arac/creator-flow.webm'
+		}
 	];
 	const benefits = [{ title: 'Natural handheld movement', copy: 'Move the camera with your body instead of nudging sliders frame by frame. The result feels closer to a real trackside camera.' }, { title: 'Made for Assetto Corsa creators', copy: 'Designed for people recording cars, maps, mods, reels and showcase clips inside Assetto Corsa.' }, { title: 'Simple setup before a recording session', copy: 'Open the iOS app, enable ARAC Camera, recenter your view and start filming without turning setup into the whole evening.' }, { title: 'Works for cinematic clips, reels, and mod previews', copy: 'Use it for rolling shots, close passes, garage walkarounds, build reveals and quick social clips.' }];
 </script>
@@ -54,21 +76,27 @@
 	</section>
 	<section class="section presentations" aria-labelledby="presentations-title">
 		<div class="section__copy section__copy--wide">
-			<p class="section-label">Feature presentations</p>
-			<h2 id="presentations-title">Three WebM slots for the important moments.</h2>
+			<p class="section-label">Camera features</p>
+			<h2 id="presentations-title">A camera system made for moving shots, not menu tweaking.</h2>
 		</div>
 		<div class="presentation-grid">
-			{#each presentations as presentation}
+			{#each cameraFeatures as feature}
 				<article class="presentation-card">
-					<div class="video-slot">
-						<video muted playsinline loop preload="metadata" aria-label={presentation.title}></video>
-						<div class="video-slot__overlay">
-							<span>WEBM</span>
-							<strong>{presentation.file}</strong>
+					{#if feature.videoSrc}
+						<div class="video-slot">
+							<video autoplay muted playsinline loop preload="auto" aria-label="{feature.title} demo">
+								<source src={feature.videoSrc} type="video/webm" />
+							</video>
 						</div>
-					</div>
-					<h3>{presentation.title}</h3>
-					<p>{presentation.copy}</p>
+					{:else}
+						<div class="feature-plate" aria-hidden="true">
+							<span>{feature.eyebrow}</span>
+							<strong>{feature.title}</strong>
+						</div>
+					{/if}
+					<span class="feature-eyebrow">{feature.eyebrow}</span>
+					<h3>{feature.title}</h3>
+					<p>{feature.copy}</p>
 				</article>
 			{/each}
 		</div>
@@ -310,6 +338,15 @@
 			#0d1113;
 		box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 	}
+	.video-slot::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background:
+			linear-gradient(180deg, transparent 62%, rgba(8, 10, 12, 0.36)),
+			linear-gradient(90deg, rgba(255, 63, 22, 0.16), transparent 36%);
+		pointer-events: none;
+	}
 	.video-slot video {
 		position: absolute;
 		inset: 0;
@@ -317,30 +354,60 @@
 		height: 100%;
 		object-fit: cover;
 	}
-	.video-slot__overlay {
+	.feature-plate {
 		position: relative;
-		z-index: 1;
-		display: grid;
-		gap: 8px;
-		padding: 18px;
-		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		aspect-ratio: 16 / 9;
+		overflow: hidden;
+		padding: 20px;
+		border: 1px solid rgba(255, 255, 255, 0.13);
+		border-radius: 8px;
+		background:
+			linear-gradient(135deg, rgba(255, 74, 31, 0.28), transparent 44%),
+			repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 64px),
+			#0d1113;
+		box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 	}
-	.video-slot__overlay span,
+	.feature-plate::after {
+		content: '';
+		position: absolute;
+		right: -18%;
+		bottom: -38%;
+		width: 68%;
+		aspect-ratio: 1;
+		border: 1px solid rgba(255, 74, 31, 0.32);
+		border-radius: 50%;
+	}
+	.feature-plate span,
+	.feature-eyebrow,
 	.presentation-card h3 {
 		font-family: 'Russo One', Inter, sans-serif;
 		font-weight: 400;
 	}
-	.video-slot__overlay span {
+	.feature-plate span,
+	.feature-eyebrow {
 		color: #ff4a1f;
 		font-size: 16px;
 	}
-	.video-slot__overlay strong {
-		color: rgba(255, 255, 255, 0.82);
-		font-size: 14px;
-		line-height: 1.3;
+	.feature-plate strong {
+		position: relative;
+		z-index: 1;
+		max-width: 12ch;
+		color: rgba(255, 255, 255, 0.88);
+		font-size: clamp(22px, 2.4vw, 30px);
+		line-height: 1.05;
+		text-wrap: balance;
+	}
+	.feature-eyebrow {
+		display: block;
+		margin-top: 18px;
+		font-size: 13px;
+		text-transform: uppercase;
 	}
 	.presentation-card h3 {
-		margin-top: 20px;
+		margin-top: 10px;
 		color: #ffffff;
 		font-size: 24px;
 		line-height: 1.1;
@@ -463,7 +530,6 @@
 		.arac-footer { display: grid; }
 	}
 	@media (max-width: 520px) {
-		.hero,
 		.signal,
 		.section,
 		.final-cta {
