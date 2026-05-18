@@ -1,5 +1,6 @@
 <script lang="ts">
 	const patreonLabel = 'Patreon (coming soon)';
+	const discordHandle = 'ryczek02';
 	const steps = ['Download iOS app', 'Enable ARAC Camera', 'Start recording'];
 	type CameraFeature = {
 		eyebrow: string;
@@ -31,10 +32,21 @@
 	const benefits = [{ title: 'Natural handheld movement', copy: 'Move the camera with your body instead of nudging sliders frame by frame. The result feels closer to a real trackside camera.' }, { title: 'Made for Assetto Corsa creators', copy: 'Designed for people recording cars, maps, mods, reels and showcase clips inside Assetto Corsa.' }, { title: 'Simple setup before a recording session', copy: 'Open the iOS app, enable ARAC Camera, recenter your view and start filming without turning setup into the whole evening.' }, { title: 'Works for cinematic clips, reels, and mod previews', copy: 'Use it for rolling shots, close passes, garage walkarounds, build reveals and quick social clips.' }];
 </script>
 <svelte:head>
-	<title>ARAC Camera for Assetto Corsa</title><meta name="description" content="ARAC Camera turns your iPhone into a handheld cinematic camera for Assetto Corsa." />
-	<meta property="og:title" content="ARAC Camera for Assetto Corsa" />
-	<meta property="og:description" content="Turn your iPhone into a handheld cinematic camera for Assetto Corsa." />
-	<meta property="og:image" content="/arac/1-2-scaled.jpg" />
+	<title>ARAC Camera | iPhone camera control for Assetto Corsa</title>
+	<meta name="description" content="Turn your iPhone into a handheld camera for cinematic Assetto Corsa clips, reels, and mod previews." />
+	<link rel="canonical" href="https://lukaszryczko.pl/arac" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://lukaszryczko.pl/arac" />
+	<meta property="og:title" content="ARAC Camera | iPhone camera control for Assetto Corsa" />
+	<meta property="og:description" content="Film smoother Assetto Corsa shots with physical phone movement instead of static camera tools." />
+	<meta property="og:image" content="https://lukaszryczko.pl/arac/og-image.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content="ARAC Camera landing preview with cinematic Assetto Corsa camera copy." />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="ARAC Camera | iPhone camera control for Assetto Corsa" />
+	<meta name="twitter:description" content="A handheld phone camera workflow for cinematic Assetto Corsa clips." />
+	<meta name="twitter:image" content="https://lukaszryczko.pl/arac/og-image.png" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet" />
 </svelte:head>
@@ -128,7 +140,7 @@
 	</section>
 	<footer class="arac-footer">
 		<a href="/" class="footer-mark">ARAC Camera</a>
-		<nav aria-label="ARAC footer links"><a href="/arac">Landing</a><span>{patreonLabel}</span></nav>
+		<nav aria-label="ARAC footer links"><span>{patreonLabel}</span><span>Discord: {discordHandle}</span></nav>
 		<p>Assetto Corsa cinematic camera mod.</p>
 	</footer>
 </main>
@@ -492,7 +504,6 @@
 		text-transform: uppercase;
 	}
 	.arac-footer nav { display: flex; gap: 22px; }
-	.arac-footer nav a,
 	.arac-footer nav span {
 		color: rgba(255, 255, 255, 0.72);
 		font-size: 13px;
