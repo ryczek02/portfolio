@@ -106,7 +106,7 @@ const html = `<!doctype html>
 					<span class="title-line">AR Cam</span>
 					<span class="title-line"><span class="for-lockup">for ${acMark}</span></span>
 				</h1>
-				<p class="intro">Use your iPhone as a real handheld camera for cinematic Assetto Corsa shots. Film smoother clips, creator reels, and mod previews with physical movement.</p>
+				<p class="intro">Use your iPhone as a real handheld camera for cinematic Assetto Corsa shots. Film smoother clips, reels, and mod previews with physical movement.</p>
 			</section>
 		</main>
 	</body>

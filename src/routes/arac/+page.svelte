@@ -2,6 +2,8 @@
 	const patreonLabel = 'Patreon (coming soon)';
 	const discordHandle = 'ryczek02';
 	const githubStars = '1k+';
+	const clipCreditHandle = '@ryczek02';
+	const clipCreditUrl = 'https://www.instagram.com/ryczek02/';
 	const steps = ['Download iOS app', 'Enable ARAC Camera', 'Start recording'];
 	type CameraFeature = {
 		eyebrow: string;
@@ -100,7 +102,7 @@
 			</h1>
 			<p class="intro">
 				Use your iPhone as a real handheld camera for cinematic Assetto Corsa shots.
-				Film smoother clips, creator reels, and mod previews with physical movement.
+				Film smoother clips, reels, and mod previews with physical movement.
 			</p>
 			<div class="actions" aria-label="ARAC actions">
 				<span class="download-button download-button--github" role="link" aria-disabled="true">
@@ -139,6 +141,11 @@
 					<video autoplay muted playsinline loop preload="auto" aria-label="ARAC camera footage">
 						<source src={video.src} type="video/webm" />
 					</video>
+					<figcaption class="clip-credit">
+						<span>Posted by</span>
+						<a href={clipCreditUrl} target="_blank" rel="noreferrer">{clipCreditHandle}</a>
+						<span>on Instagram</span>
+					</figcaption>
 				</figure>
 			{/each}
 		</div>
@@ -207,6 +214,11 @@
 							<video autoplay muted playsinline loop preload="auto" aria-label="{feature.title} demo">
 								<source src={feature.videoSrc} type="video/webm" />
 							</video>
+							<span class="clip-credit">
+								<span>Posted by</span>
+								<a href={clipCreditUrl} target="_blank" rel="noreferrer">{clipCreditHandle}</a>
+								<span>on Instagram</span>
+							</span>
 						</div>
 					{:else}
 						<div class="feature-plate" aria-hidden="true">
@@ -274,9 +286,12 @@
 		background: #090b0d;
 	}
 	.arac-page {
+		position: relative;
 		min-height: 100svh;
 		overflow: hidden;
-		background: #090b0d;
+		background:
+			radial-gradient(circle at 74% 18%, rgba(255, 74, 31, 0.08), transparent 34%),
+			#090b0d;
 		color: #ffffff;
 		font-family: 'Chakra Petch', Inter, sans-serif;
 	}
@@ -330,6 +345,63 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+	.clip-credit {
+		position: absolute;
+		left: 14px;
+		bottom: 14px;
+		z-index: 2;
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		min-height: 30px;
+		max-width: calc(100% - 28px);
+		padding: 0 11px;
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		border-radius: 999px;
+		background: rgba(5, 7, 9, 0.78);
+		color: rgba(255, 255, 255, 0.88);
+		box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+		font-size: 11px;
+		font-weight: 800;
+		line-height: 1;
+		opacity: 0;
+		pointer-events: none;
+		transform: translateY(8px);
+		transition:
+			opacity 180ms ease,
+			transform 180ms ease;
+		white-space: nowrap;
+	}
+	.ar-plane:hover .clip-credit,
+	.ar-plane:focus-within .clip-credit,
+	.video-slot:hover .clip-credit,
+	.video-slot:focus-within .clip-credit {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translateY(0);
+	}
+	.clip-credit a {
+		color: #ff4a1f;
+		text-decoration: none;
+	}
+	.clip-credit a:hover {
+		color: #ff6a42;
+	}
+	.clip-credit a:focus-visible {
+		border-radius: 4px;
+		outline: 2px solid rgba(255, 74, 31, 0.78);
+		outline-offset: 2px;
+	}
+	.clip-credit::before {
+		content: '';
+		flex: 0 0 auto;
+		width: 6px;
+		height: 6px;
+		margin-right: 4px;
+		border-radius: 999px;
+		background: #ff4a1f;
+		box-shadow: 0 0 14px rgba(255, 74, 31, 0.7);
 	}
 	.ar-plane--primary {
 		z-index: 4;
@@ -575,7 +647,24 @@
 		margin: 0 auto;
 	}
 	.section {
+		position: relative;
 		padding: clamp(54px, 8vw, 96px) 0;
+	}
+	.section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 100vw;
+		height: 1px;
+		z-index: 0;
+		background: rgba(255, 255, 255, 0.13);
+		transform: translateX(-50%);
+		pointer-events: none;
+	}
+	.section > * {
+		position: relative;
+		z-index: 1;
 	}
 	.section-label {
 		margin-bottom: 14px;
@@ -602,9 +691,8 @@
 	.desktop-app {
 		display: grid;
 		grid-template-columns: minmax(0, 0.88fr) minmax(280px, 0.9fr);
-		align-items: start;
+		align-items: center;
 		gap: clamp(28px, 6vw, 86px);
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
 	}
 	.intro-band > p,
 	.final-cta p,
@@ -701,6 +789,7 @@
 		content: '';
 		position: absolute;
 		inset: 0;
+		z-index: 1;
 		background:
 			linear-gradient(180deg, transparent 62%, rgba(8, 10, 12, 0.36)),
 			linear-gradient(90deg, rgba(255, 63, 22, 0.16), transparent 36%);
@@ -712,6 +801,15 @@
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
+	}
+	.video-slot .clip-credit {
+		left: 12px;
+		bottom: 12px;
+		min-height: 28px;
+		max-width: calc(100% - 24px);
+		padding: 0 10px;
+		background: rgba(5, 7, 9, 0.82);
+		font-size: 10px;
 	}
 	.feature-plate {
 		position: relative;
@@ -848,6 +946,8 @@
 		line-height: 1.6;
 	}
 	.final-cta {
+		position: relative;
+		overflow: hidden;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -859,6 +959,17 @@
 		background:
 			linear-gradient(112deg, rgba(255, 63, 22, 0.34), transparent 48%),
 			rgba(255, 255, 255, 0.045);
+	}
+	.final-cta::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(90deg, transparent, rgba(9, 11, 13, 0.5));
+		pointer-events: none;
+	}
+	.final-cta > * {
+		position: relative;
+		z-index: 1;
 	}
 	.final-cta > div { max-width: 680px; }
 	.final-cta p { margin-top: 16px; }
