@@ -60,8 +60,8 @@
 			copy: 'The AC plugin and backend bridge will be fully open-source for transparency and security review by the community.'
 		},
 		{
-			title: 'iOS camera app',
-			copy: 'The iOS app will be distributed through the App Store/TestFlight and focused on the mobile camera experience itself.'
+			title: 'Open-source iOS camera app',
+			copy: 'The iOS app will also be open-source. Using the App Store build will be paid, and creators who want to support development will also be able to do it through Patreon.'
 		},
 		{
 			title: 'Camera transform data only',
@@ -123,6 +123,7 @@
 					</span>
 					<span class="download-button download-button--patreon" role="link" aria-disabled="true" aria-label={patreonLabel}>
 						<img class="download-button__asset" src="/arac/patreon-logo.svg" alt="" aria-hidden="true" />
+						<span class="patreon-label">Patreon</span>
 					</span>
 				</div>
 			</div>
@@ -450,6 +451,9 @@
 		height: 24px;
 		filter: brightness(0) invert(1);
 		object-fit: contain;
+	}
+	.patreon-label {
+		display: none;
 	}
 	.star-badge {
 		display: inline-flex;
@@ -889,8 +893,29 @@
 			background-position: 58% center;
 		}
 		.hero__visual {
-			width: min(100%, 620px);
-			min-height: min(76vw, 450px);
+			display: none;
+		}
+		.actions {
+			width: 100%;
+		}
+		.download-row {
+			grid-template-columns: 1fr;
+		}
+		.download-button {
+			width: 100%;
+		}
+		.download-button--patreon {
+			justify-content: flex-start;
+			width: 100%;
+			min-height: 54px;
+			padding: 0 14px 0 18px;
+		}
+		.download-button--patreon .download-button__asset {
+			width: 21px;
+			height: 21px;
+		}
+		.patreon-label {
+			display: inline;
 		}
 		.ar-plane--primary {
 			width: min(84%, 520px);
@@ -953,9 +978,6 @@
 		.download-button,
 		.cta {
 			width: 100%;
-		}
-		.hero__visual {
-			min-height: 340px;
 		}
 		.ar-plane {
 			border-radius: 16px;
