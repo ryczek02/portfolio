@@ -69,9 +69,9 @@
 
 	h2 {
 		max-width: 650px;
-		font-family: var(--font-russo);
+		font-family: var(--font-unbounded);
 		font-size: clamp(58px, 8vw, 118px);
-		font-weight: 400;
+		font-weight: 800;
 		letter-spacing: 0;
 		line-height: 0.96;
 		text-transform: uppercase;

@@ -86,13 +86,18 @@
 	<meta name="twitter:description" content="A handheld phone camera workflow for cinematic Assetto Corsa clips." />
 	<meta name="twitter:image" content="https://lukaszryczko.pl/arac/og-image.png" />
 	<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 </svelte:head>
 <main class="arac-page">
 	<section class="hero" aria-labelledby="arac-title">
 		<div class="hero__copy">
 			<p class="brand">ARAC Camera</p>
-			<h1 id="arac-title">AR camera for Assetto Corsa.</h1>
+			<h1 id="arac-title">
+				AR Cam for
+				<span class="ac-logo-lockup">
+					<img src="/arac/assetto-corsa-mark.svg" alt="Assetto Corsa" />
+				</span>
+			</h1>
 			<p class="intro">
 				Use your iPhone as a real handheld camera for cinematic Assetto Corsa shots.
 				Film smoother clips, creator reels, and mod previews with physical movement.
@@ -355,20 +360,33 @@
 	.brand {
 		margin-bottom: 18px;
 		color: #ff4a1f;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: 18px;
+		font-weight: 800;
 		line-height: 1;
 		text-transform: uppercase;
 	}
 	h1 {
-		max-width: 12.5ch;
+		max-width: 11.2ch;
 		color: #ffffff;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: clamp(44px, 5.8vw, 76px);
-		font-weight: 400;
+		font-weight: 800;
 		line-height: 0.98;
 		letter-spacing: 0;
 		text-wrap: balance;
+	}
+	.ac-logo-lockup {
+		display: inline-flex;
+		align-items: center;
+		width: 1.25em;
+		margin-left: 0.06em;
+		vertical-align: -0.13em;
+	}
+	.ac-logo-lockup img {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 	.intro {
 		max-width: 560px;
@@ -542,7 +560,7 @@
 	}
 	.signal span {
 		color: #ff4a1f;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: 18px;
 	}
 	.signal p {
@@ -562,16 +580,17 @@
 	.section-label {
 		margin-bottom: 14px;
 		color: #ff4a1f;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: 15px;
+		font-weight: 800;
 		line-height: 1;
 		text-transform: uppercase;
 	}
 	h2 {
 		color: #ffffff;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: clamp(34px, 4vw, 56px);
-		font-weight: 400;
+		font-weight: 700;
 		line-height: 1.02;
 		letter-spacing: 0;
 		text-wrap: balance;
@@ -590,8 +609,8 @@
 	.intro-band > p,
 	.final-cta p,
 	.presentation-card p,
-	.creator-pitch p,
-	.desktop-app p,
+	.creator-pitch p:not(.section-label),
+	.desktop-app p:not(.section-label),
 	.creator-channel-list p,
 	.transparency-list p {
 		color: rgba(255, 255, 255, 0.72);
@@ -625,9 +644,9 @@
 	}
 	.creator-channel-list h3 {
 		color: #ffffff;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: 20px;
-		font-weight: 400;
+		font-weight: 700;
 		line-height: 1.15;
 	}
 	.creator-channel-list p {
@@ -650,9 +669,9 @@
 	}
 	.transparency-list h3 {
 		color: #ffffff;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: 20px;
-		font-weight: 400;
+		font-weight: 700;
 		line-height: 1.15;
 	}
 	.transparency-list p {
@@ -723,8 +742,8 @@
 	.feature-plate span,
 	.feature-eyebrow,
 	.presentation-card h3 {
-		font-family: 'Russo One', Inter, sans-serif;
-		font-weight: 400;
+		font-family: 'Unbounded', Inter, sans-serif;
+		font-weight: 700;
 	}
 	.feature-plate span,
 	.feature-eyebrow {
@@ -858,8 +877,9 @@
 	}
 	.footer-mark {
 		color: #ffffff;
-		font-family: 'Russo One', Inter, sans-serif;
+		font-family: 'Unbounded', Inter, sans-serif;
 		font-size: 18px;
+		font-weight: 800;
 		text-transform: uppercase;
 	}
 	.arac-footer nav { display: flex; gap: 22px; }
